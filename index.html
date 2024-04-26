@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>卒業メッセージ</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('main.png');
+    background-size: cover;
+    background-position: center;
+  }
 
+  .menu-container {
+    text-align: center;
+    margin-top: 20%;
+    color: #fff;
+  }
+
+  .menu-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .menu-list li {
+    margin-bottom: 10px;
+  }
+
+  .menu-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .menu-list li a:hover {
+    color: #007bff;
+  }
+
+  .video-container {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="menu-container">
+  <h1>卒業メッセージ</h1>
+  <ul class="menu-list">
+    <li><a href="#" onclick="playMainVideo()">卒業動画再生</a></li>
+  </ul>
+</div>
+<div class="video-container" id="videoContainer">
+  <video id="mainVideo" src="main.mp4" controls></video>
+</div>
+
+<script>
+  function playMainVideo() {
+    var videoContainer = document.getElementById('videoContainer');
+    var mainVideo = document.getElementById('mainVideo');
+    
+    // Hide other videos if any
+    var videos = videoContainer.getElementsByTagName('video');
+    for (var i = 0; i < videos.length; i++) {
+      videos[i].pause();
+      videos[i].currentTime = 0;
+    }
+
+    // Show and play main video
+    videoContainer.style.display = 'block';
+    mainVideo.style.display = 'block';
+    mainVideo.play();
+  }
+</script>
+</body>
+</html>
